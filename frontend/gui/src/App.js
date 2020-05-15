@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
+import 'antd/dist/antd.css'
+
+import CustomLayout from './containers/Layout'
+
+import {BrowserRouter} from 'react-router-dom'
+
+import BaseRouter from './routes'
+
+import ArticleList from './containers/ArticleListView'
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+    <CustomLayout>
+      <BaseRouter/>
+    </CustomLayout>
+    </BrowserRouter>
+
+  )
 }
 
-export default App;
+export default App
