@@ -12,6 +12,12 @@ web: gunicorn djreact.wsgi --log-file -
   }
   
   
+  
+  runtime.txt
+  
+  python-3.6.6
+  
+  
   requirements.txt
   
   
