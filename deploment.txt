@@ -1,6 +1,8 @@
 heroku buildpacks:set heroku/python
 heroku buildpacks:add --index 1 heroku/nodejs
 heroku git:remote -a djreactbysai
+heroku config:set DISABLE_COLLECTSTATIC=1
+
 
 wspi.py
 settings.py
