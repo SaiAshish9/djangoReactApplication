@@ -1,6 +1,9 @@
 heroku buildpacks:set heroku/python
 heroku buildpacks:add --index 1 heroku/nodejs
+heroku git:remote -a djreactbysai
 
+wspi.py
+settings.py
 
 
 ProcFile
