@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
+#django-rest-auth django-all-auth django-cors-headers
 
 import os
 
@@ -32,8 +33,15 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'articles',
-    'rest_framework',
     'corsheaders',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth.registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,7 +50,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+SITE_ID =1
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -120,6 +131,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+
 STATIC_URL = '/static/'
 
 
@@ -129,10 +141,18 @@ REST_FRAMEWORK={
 
 'DEFAULT_PERMISSION_CLASSES':[
 
-'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+# 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+'rest_framework.permissions.AllowAny'
+
 
 ]
 
 
 }
 
+CORS_ORIGIN_ALLOW_ALL=True
+
+
+ACCOUNT_EMAIL_VERIFICATION='none'
+ACCOUNT_AUTHENTICATION_METHOD='username'
+ACCOUNT_EMAIL_REQUIRED=False

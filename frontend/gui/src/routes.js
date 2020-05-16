@@ -1,19 +1,20 @@
 import React from 'react'
-
-import {Route} from 'react-router-dom'
+import {Route,Switch} from 'react-router-dom'
 
 import ArticleList from './containers/ArticleListView'
-
 import Detail from './containers/ArticleDetailView'
+import Login from './containers/Login'
+import Signup from './containers/Signup'
 
 const BaseRouter=()=>(
 
-<div>
+<Switch>
 
 <Route exact path="/" component={ArticleList}/>
-<Route path="/:id" component={Detail}/>
-
-</div>
+<Route exact path="/login" component={Login}/>
+<Route exact path="/signup" component={Signup}/>
+<Route exact path="/articles/:id" component={Detail}/>
+</Switch>
 
 )
 

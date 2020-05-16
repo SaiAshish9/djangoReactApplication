@@ -1,14 +1,14 @@
 import React from 'react'
-import { List, Avatar, Space } from 'antd';
+import { List, Avatar } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 
 
 
 const IconText = ({ icon, text,data }) => (
-  <Space>
+  <div>
     {React.createElement(icon)}
     {text}
-  </Space>
+  </div>
 );
 
 const Article=({data})=>(
@@ -41,7 +41,7 @@ const Article=({data})=>(
       >
         <List.Item.Meta
           // avatar={<Avatar src={item.avatar} />}
-          title={<a href={`/${item.id}`}>{item.title}</a>}
+          title={<a href={`/articles/${item.id}`}>{item.title}</a>}
           description={item.description}
         />
         {item.content}

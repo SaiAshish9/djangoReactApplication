@@ -2,9 +2,31 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {Provider} from 'react-redux'
+import reducer from './store/reducers/auth'
+
+import logger from 'redux-logger'
+import thunk from 'redux-thunk'
+
+import {applyMiddleware,createStore,compose} from 'redux'
+
+
+
+const composeEnhances = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+const store = createStore(reducer, composeEnhances(
+    applyMiddleware(thunk,logger)
+));
+
 
 ReactDOM.render(
+<Provider store={store}>
+
     <App />
+
+</Provider>
+
+
  ,
   document.getElementById('root')
 );

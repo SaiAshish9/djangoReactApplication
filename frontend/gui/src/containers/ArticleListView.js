@@ -4,6 +4,8 @@ import Article from '../components/Article'
 
 import axios from 'axios'
 
+import CustomForm from '../components/form'
+
 
 export default class ArticleListView extends Component {
 
@@ -24,7 +26,26 @@ axios.get('/api')
 
     render() {
         return (
+
+
+            <div>
+
             <Article data={this.state.articles} />
-        )
+
+
+<br/>
+<h2>
+    Create an article
+</h2>
+<CustomForm
+type='post'
+id='null'
+/>
+
+</div>
+
+
+
+            )
     }
 }

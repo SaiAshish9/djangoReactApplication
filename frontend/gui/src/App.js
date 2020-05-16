@@ -1,19 +1,21 @@
-import React from 'react'
-
+import React,{useEffect} from 'react'
 import 'antd/dist/antd.css'
-
 import CustomLayout from './containers/Layout'
-
 import {BrowserRouter} from 'react-router-dom'
-
 import BaseRouter from './routes'
+import {connect} from 'react-redux'
+import * as actions from './store/actions/auth'
 
-import ArticleList from './containers/ArticleListView'
 
-const App = () => {
+const App = (props) => {
+
+useEffect(()=>{
+
+},[])
+
   return (
     <BrowserRouter>
-    <CustomLayout>
+    <CustomLayout {...props}>
       <BaseRouter/>
     </CustomLayout>
     </BrowserRouter>
@@ -21,4 +23,13 @@ const App = () => {
   )
 }
 
-export default App
+const mapStateToProps =state =>({
+  isAuthenticated:state.token !== null
+})
+
+const mapDispatchToProps =dispatch =>({
+  onTryAutoSignUp:()=>dispatch(actions.authCheckState())
+})
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(App)
