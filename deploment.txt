@@ -1,2 +1,24 @@
 heroku buildpacks:set heroku/python
 heroku buildpacks:add --index 1 heroku/nodejs
+
+
+
+ProcFile
+release:python manage.py migrate
+web: gunicorn djreact.wsgi --log-file -
+  "engines":{
+"node":"12.16.1",
+"npm":"6.13.4"
+  }
+  
+  
+  requirements.txt
+  
+  
+  Django==2.0.7
+django-cors-headers==2.4.0
+djangorestframework==3.8.2
+pytz==2018.5
+gunicorn==19.7.1
+whitenoise==3.3.1
+  
